@@ -1,3 +1,4 @@
+# registry.cn-hongkong.aliyuncs.com/wenzhiquan/scene_graph_benchmark:1.0
 ARG CUDA="10.1"
 ARG CUDNN="7"
 
