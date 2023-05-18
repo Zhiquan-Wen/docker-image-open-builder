@@ -28,8 +28,8 @@ ENV PATH=$CONDA_PREFIX/bin:$PATH
 ENV CONDA_AUTO_UPDATE_CONDA=false
 
 RUN conda install -y ipython nltk joblib jupyter pandas scipy
-RUN pip install requests ninja cython yacs>=0.1.8 numpy>=1.19.5 matplotlib opencv-python tqdm \
- protobuf tensorboardx pymongo sklearn boto3 scikit-image h5py==2.10.0 cityscapesscripts
+RUN pip install requests ninja cython yacs numpy matplotlib opencv-python-headless tqdm \
+ protobuf tensorboardx pymongo sklearn boto3 scikit-image h5py cityscapesscripts
 RUN pip install azureml-defaults>=1.0.45 azureml.core inference-schema
 RUN pip --no-cache-dir install --force-reinstall -I pyyaml
 
