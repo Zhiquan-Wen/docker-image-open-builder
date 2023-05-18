@@ -1,8 +1,6 @@
 # registry.cn-hongkong.aliyuncs.com/wenzhiquan/scene_graph_benchmark:1.0
-ARG CUDA="10.1"
-ARG CUDNN="7"
 
-FROM nvidia/cuda:${CUDA}-cudnn${CUDNN}-devel-ubuntu18.04
+FROM nvidia/cuda:11.7.0-devel-ubuntu18.04
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
@@ -37,9 +35,9 @@ RUN pip --no-cache-dir install --force-reinstall -I pyyaml
 
 RUN python -m nltk.downloader punkt
 
-# Install latest PyTorch 1.7.1
+# Install latest PyTorch 1.13.1
 ARG CUDA
-RUN conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=10.1 -c pytorch \
+RUN conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia \
  && conda clean -ya
 RUN conda install -y -c conda-forge timm einops
 
@@ -62,8 +60,8 @@ RUN echo """syntax on\nfiletype indent on\nset autoindent\nset number\ncolorsche
 
 CMD [ "zsh" ]
 
-# RUN git clone https://github.com/microsoft/scene_graph_benchmark.git \
-#  && cd scene_graph_benchmark \
-#  && python setup.py build develop
+RUN git clone https://github.com/microsoft/scene_graph_benchmark.git \
+ && cd scene_graph_benchmark \
+ && python setup.py build develop
 
-# WORKDIR /scene_graph_benchmark
+WORKDIR /scene_graph_benchmark
