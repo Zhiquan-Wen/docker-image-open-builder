@@ -1,6 +1,6 @@
-# registry.cn-hongkong.aliyuncs.com/wenzhiquan/scene_graph_benchmark:1.0
+# registry.cn-hongkong.aliyuncs.com/wenzhiquan/oscar_env:1.0
 
-FROM nvidia/cuda:11.7.0-devel-ubuntu18.04
+FROM nvidia/cuda:10.0-devel-ubuntu18.04
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
