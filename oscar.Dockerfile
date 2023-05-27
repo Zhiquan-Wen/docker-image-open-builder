@@ -31,7 +31,7 @@ RUN pip --no-cache-dir install --force-reinstall -I pyyaml
 
 # Install latest PyTorch 1.2.0
 ARG CUDA
-RUN conda install pytorch==1.2.0 torchvision==0.4.0 cudatoolkit=10.0 -c pytorch \
+RUN pip install torch==1.2.0 torchvision==0.4.0 \
  && conda clean -ya
 
 RUN git clone https://github.com/NVIDIA/apex.git \
